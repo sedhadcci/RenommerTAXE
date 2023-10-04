@@ -6,7 +6,7 @@ import tempfile
 def rename_files(folder_path, new_prefix):
     for filename in os.listdir(folder_path):
         if filename.startswith("synthese_taxe_apprentissage_"):
-            new_name = f"{new_prefix}_{filename.split('_')[2]}_2023.xlsx"
+            new_name = f"{new_prefix}_{filename.split('synthese_taxe_apprentissage_')[1]}"
             os.rename(
                 os.path.join(folder_path, filename),
                 os.path.join(folder_path, new_name)
@@ -16,7 +16,7 @@ st.title("Renommage des fichiers Excel")
 
 uploaded_files = st.file_uploader("Téléchargez les fichiers Excel", accept_multiple_files=True)
 
-new_prefix = st.text_input("Nouvelle préfixe:", value="51-EMD-SCHINDLER")
+new_prefix = st.text_input("Nouvelle préfixe:", value="22-EDF")
 
 if uploaded_files and new_prefix:
     with tempfile.TemporaryDirectory() as temp_dir:
