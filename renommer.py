@@ -16,7 +16,7 @@ st.title("Renommage des fichiers Excel")
 
 uploaded_files = st.file_uploader("Téléchargez les fichiers Excel", accept_multiple_files=True)
 
-new_prefix = st.text_input("Nouvelle préfixe:", value="")
+new_prefix = st.text_input("Nouvelle préfixe:", value="Entrer le nom du dossier ...")
 
 if uploaded_files and new_prefix:
     with tempfile.TemporaryDirectory() as temp_dir:
