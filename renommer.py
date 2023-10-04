@@ -7,9 +7,10 @@ import tempfile
 def rename_files(folder_path, new_prefix):
     for filename in os.listdir(folder_path):
         if filename.startswith("synthese_taxe_apprentissage_"):
+            new_name = f"{new_prefix}_{filename.split('_')[2]}_2023.xlsx"
             os.rename(
                 os.path.join(folder_path, filename),
-                os.path.join(folder_path, f"{new_prefix}_{filename.split('_')[2]}_{filename.split('_')[3]}")
+                os.path.join(folder_path, new_name)
             )
 
 st.title("Renommage des fichiers Excel")
